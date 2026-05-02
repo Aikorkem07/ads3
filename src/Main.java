@@ -101,28 +101,41 @@ public class Main {
             System.out.println("Invalid k value provided.");
             return;
         }
-        sortIntArray(array);
+        sortIntArrayQuick(array, 0, array.length - 1);
         int kThSmallest = array[k - 1];
         System.out.println("Output: " + kThSmallest);
     }
 
-    /* Task 2 & 3: Sort int array using bubble sort. */
-    public static void sortIntArray(int[] array) {
-        int length = array.length;
-        for (int outer = 0; outer < length - 1; outer++) {
-            for (int inner = 0; inner < length - outer - 1; inner++) {
-                if (array[inner] > array[inner + 1]) {
-                    int temp = array[inner];
-                    array[inner] = array[inner + 1];
-                    array[inner + 1] = temp;
-                }
+    /* Task 2 & 3: Sort int array using quick sort algorithm. */
+    public static void sortIntArrayQuick(int[] array, int low, int high) {
+        if (low < high) {
+            int partitionIndex = partitionIntArray(array, low, high);
+            sortIntArrayQuick(array, low, partitionIndex - 1);
+            sortIntArrayQuick(array, partitionIndex + 1, high);
+        }
+    }
+
+    /* Task 2 & 3: Partition int array for quick sort. */
+    public static int partitionIntArray(int[] array, int low, int high) {
+        int pivot = array[high];
+        int i = (low - 1);
+        for (int j = low; j < high; j++) {
+            if (array[j] <= pivot) {
+                i++;
+                int temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
             }
         }
+        int temp = array[i + 1];
+        array[i + 1] = array[high];
+        array[high] = temp;
+        return i + 1;
     }
 
     /* Task 3: Calculate and print median value. */
     public static void calculateMedian(int[] array) {
-        sortIntArray(array);
+        sortIntArrayQuick(array, 0, array.length - 1);
         int length = array.length;
         if (length == 0) {
             System.out.println("Array is empty.");
