@@ -53,7 +53,7 @@ public class Main {
         inputScanner.close();
     }
 
-    /*Check if strings are anagrams.*/
+    /* Task 1: Check if strings are anagrams. */
     public static void verifyAnagram(String firstString, String secondString) {
         if (firstString.length() != secondString.length()) {
             System.out.println("Output: NO");
@@ -81,7 +81,7 @@ public class Main {
         }
     }
 
-    /*Sort char array using bubble sort.*/
+    /* Task 1: Sort char array using bubble sort. */
     public static void sortCharArray(char[] charArray) {
         int length = charArray.length;
         for (int outer = 0; outer < length - 1; outer++) {
@@ -95,7 +95,7 @@ public class Main {
         }
     }
 
-    /* Find k-th smallest element.*/
+    /* Task 2: Find k-th smallest element. */
     public static void findKthSmallestElement(int[] array, int k) {
         if (k < 1 || k > array.length) {
             System.out.println("Invalid k value provided.");
@@ -106,7 +106,7 @@ public class Main {
         System.out.println("Output: " + kThSmallest);
     }
 
-    /* Sort int array using bubble sort. */
+    /* Task 2 & 3: Sort int array using bubble sort. */
     public static void sortIntArray(int[] array) {
         int length = array.length;
         for (int outer = 0; outer < length - 1; outer++) {
@@ -120,7 +120,7 @@ public class Main {
         }
     }
 
-    /*Calculate and print median value.*/
+    /* Task 3: Calculate and print median value. */
     public static void calculateMedian(int[] array) {
         sortIntArray(array);
         int length = array.length;
@@ -136,7 +136,7 @@ public class Main {
         }
     }
 
-    /*Find optimal capacity via binary search.*/
+    /* Task 4: Find optimal capacity via binary search. */
     public static void findOptimalCapacity(int[] weights, int days) {
         int leftCapacity = 0;
         int rightCapacity = 0;
@@ -159,7 +159,7 @@ public class Main {
         System.out.println("Output: " + minimumCapacity);
     }
 
-    /* Check if shipment is possible within days.*/
+    /* Task 4: Check if shipment is possible within days. */
     public static boolean canShipInDays(int[] weights, int days, int capacity) {
         int currentDays = 1;
         int currentWeight = 0;
